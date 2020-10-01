@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CourseItem from "../../Components/CourseItems";
 import { connect } from "react-redux";
 import { courseService } from "../../Services";
+import { createAction } from "../../Redux/Actions";
+import { FETCH_COUSES } from "../../Redux/Actions/type";
 class HomeScreen extends Component {
   render() {
     return (
@@ -25,10 +27,7 @@ class HomeScreen extends Component {
     courseService
       .fetchCourses()
       .then((res) => {
-        this.props.dispatch({
-          type: "FETCH_COURSE",
-          payload: res.data,
-        });
+        this.props.dispatch(createAction(FETCH_COUSES, res.data));
       })
       .catch((err) => {
         console.log(err);
