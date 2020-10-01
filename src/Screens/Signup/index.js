@@ -1,30 +1,12 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
-import Axios from "axios";
-
-const signupUserSchema = yup.object().shape({
-  taiKhoan: yup.string().required("* Field is required!"),
-  matKhau: yup.string().required("* Field is required!"),
-  hoTen: yup.string().required("* Field is requried!"),
-  email: yup
-    .string()
-    .required("* Field is required!")
-    .email("* Email is invalid"),
-  soDT: yup
-    .string()
-    .required()
-    .matches(/^[0-9]+$/),
-  maNhom: yup.string().required("* Field is required!"),
-});
+import { signupUserSchema } from "../../Services/user";
+import { userService } from "../../Services";
 
 export default class SignupScreen extends Component {
   handleSubmit = (value) => {
-    Axios({
-      method: "POST",
-      url: "https://elearning0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
-      data: value,
-    })
+    userService
+      .userSignUp()
       .then((res) => {
         console.log(res);
       })

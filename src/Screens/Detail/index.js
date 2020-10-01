@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Axios from "axios";
 import { connect } from "react-redux";
+import { courseService } from "../../Services";
 class CourseDetailScreen extends Component {
   render() {
     const { courseDetail } = this.props;
@@ -12,11 +12,8 @@ class CourseDetailScreen extends Component {
     );
   }
   componentDidMount() {
-    Axios({
-      method: "GET",
-      url:
-        "https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=basic-001",
-    })
+    courseService
+      .fetchCourseDetail()
       .then((res) => {
         this.props.dispatch({
           type: "FETCH_COURSE_DETAIL",
