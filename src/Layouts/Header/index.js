@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../Assets/img/logo.png";
 import classes from "./style.module.css";
+
 export default class Header extends Component {
   render() {
     return (
@@ -24,24 +25,14 @@ export default class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link
-                  activeStyle={{ color: "blue" }}
-                  exact
-                  to="/"
-                  className="nav-link"
-                >
+                <Link to="/" className="nav-link">
                   Trang Chủ
                 </Link>
               </li>
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link
-                  activeStyle={{ color: "blue" }}
-                  exact
-                  to="/sign-up"
-                  className="nav-link"
-                >
+                <Link to="/sign-up" className="nav-link">
                   Đăng Ký
                 </Link>
               </li>
