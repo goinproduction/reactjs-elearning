@@ -15,10 +15,10 @@ export const fetchCourses = () => {
       });
   };
 };
-export const fetchCourseDetail = () => {
+export const fetchCourseDetail = (id) => {
   return (dispatch) => {
     courseService
-      .fetchCourseDetail()
+      .fetchCourseDetail(id)
       .then((res) => {
         dispatch(createAction(FETCH_COURSE_DETAIL, res.data));
       })

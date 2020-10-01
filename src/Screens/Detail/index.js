@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { courseService } from "../../Services";
-import { createAction } from "../../Redux/Actions";
-import { FETCH_COURSE_DETAIL } from "../../Redux/Actions/type";
-import { fetchCourseDetail } from "../../Redux/Actions/user";
+import { fetchCourseDetail } from "../../Redux/Actions/course";
 class CourseDetailScreen extends Component {
   render() {
     const { courseDetail } = this.props;
@@ -15,7 +12,7 @@ class CourseDetailScreen extends Component {
     );
   }
   componentDidMount() {
-    this.props.dispatch(fetchCourseDetail());
+    this.props.dispatch(fetchCourseDetail(this.props.match.params.courseId));
   }
 }
 const mapStateToProps = (state) => ({

@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/detail" component={CourseDetailScreen} />
+        <Route path="/detail/:courseId" component={CourseDetailScreen} />
         <Route path="/sign-up" component={SignupScreen} />
         <Route path="/" component={HomeScreen} />
       </Switch>

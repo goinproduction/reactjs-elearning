@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class CourseItem extends Component {
   render() {
@@ -21,7 +22,9 @@ export default class CourseItem extends Component {
             </p>
           </small>
         </div>
-        <button className="btn btn-success">Go to Detail</button>
+        <Link to={`/detail/${item.maKhoaHoc}`} className="btn btn-success">
+          Go to Detail
+        </Link>
       </div>
     );
   }
