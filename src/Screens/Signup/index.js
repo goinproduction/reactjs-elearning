@@ -17,7 +17,7 @@ export default class SignupScreen extends Component {
   render() {
     return (
       <div className="w-50 mx-auto">
-        <h3 className="text-center display-4">Sign Up</h3>
+        <h3 className="text-center display-4">Đăng Ký</h3>
         <Formik
           initialValues={{
             taiKhoan: "",
@@ -116,7 +116,7 @@ export default class SignupScreen extends Component {
                 </ErrorMessage>
               </div>
               <div className="text-center">
-                <button className="btn btn-success">Submit</button>
+                <button className="btn btn-success">Xác Nhận</button>
               </div>
             </Form>
           )}

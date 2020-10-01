@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "../../Assets/img/logo.png";
+import classes from "./style.module.css";
 export default class Header extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark text-light mb-4">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light text-light mb-4">
           <a className="navbar-brand" href="#">
-            E-Learning
+            <img src={Logo} className={classes.logo} />
           </a>
           <button
             className="navbar-toggler"
@@ -44,7 +46,9 @@ export default class Header extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Đăng Nhập</Link>
+                <Link to="/sign-in" className="nav-link">
+                  Đăng Nhập
+                </Link>
               </li>
             </ul>
           </div>
