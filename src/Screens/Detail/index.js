@@ -3,10 +3,11 @@ import Axios from "axios";
 import { connect } from "react-redux";
 class CourseDetailScreen extends Component {
   render() {
+    const { courseDetail } = this.props;
     return (
       <div>
-        <img src={this.props.courseDetail.hinhAnh} />
-        <h3>{this.props.courseDetail.tenKhoaHoc}</h3>
+        <img src={courseDetail.hinhAnh} />
+        <h3>{courseDetail.tenKhoaHoc}</h3>
       </div>
     );
   }
