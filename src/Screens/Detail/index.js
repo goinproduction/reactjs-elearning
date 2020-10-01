@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { courseService } from "../../Services";
 import { createAction } from "../../Redux/Actions";
 import { FETCH_COURSE_DETAIL } from "../../Redux/Actions/type";
+import { fetchCourseDetail } from "../../Redux/Actions/user";
 class CourseDetailScreen extends Component {
   render() {
     const { courseDetail } = this.props;
@@ -14,12 +15,7 @@ class CourseDetailScreen extends Component {
     );
   }
   componentDidMount() {
-    courseService
-      .fetchCourseDetail()
-      .then((res) => {
-        this.props.dispatch(createAction(FETCH_COURSE_DETAIL, res.data));
-      })
-      .catch((err) => {});
+    this.props.dispatch(fetchCourseDetail());
   }
 }
 const mapStateToProps = (state) => ({

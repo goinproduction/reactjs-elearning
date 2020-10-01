@@ -9,7 +9,7 @@ class CourseService {
     });
   }
   fetchCourseDetail() {
-    Axios({
+    return Axios({
       method: "GET",
       url:
         "https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=basic-001",
