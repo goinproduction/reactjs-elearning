@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import CourseItem from "../../Components/CourseItems";
 import { connect } from "react-redux";
-import { courseService } from "../../Services";
-import { createAction } from "../../Redux/Actions";
-import { FETCH_COUSES } from "../../Redux/Actions/type";
+import { fetchCourses } from "../../Redux/Actions/user";
 class HomeScreen extends Component {
   render() {
     return (
@@ -24,14 +22,7 @@ class HomeScreen extends Component {
     );
   }
   componentDidMount() {
-    courseService
-      .fetchCourses()
-      .then((res) => {
-        this.props.dispatch(createAction(FETCH_COUSES, res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.dispatch(fetchCourses());
   }
 }
 const mapStateToProps = (state) => ({

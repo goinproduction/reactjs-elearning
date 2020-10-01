@@ -5,9 +5,9 @@ import HomeScreen from "./Screens/Home";
 import SignupScreen from "./Screens/Signup";
 function App() {
   return (
-    // <HomeScreen />
+    <HomeScreen />
     // <CourseDetailScreen />
-    <SignupScreen />
+    // <SignupScreen />
   );
 }
 
