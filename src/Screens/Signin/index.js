@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Form, Formik, Field } from "formik";
-
-export default class SigninScreen extends Component {
+import { connect } from "react-redux";
+import { login } from "../../Redux/Actions/user";
+class SigninScreen extends Component {
   handleSubmit = (value) => {
     console.log(value);
+    this.props.dispatch(login(value));
   };
   render() {
     return (
@@ -45,3 +47,4 @@ export default class SigninScreen extends Component {
     );
   }
 }
+export default connect()(SigninScreen);
