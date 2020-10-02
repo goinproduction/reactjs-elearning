@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../Assets/img/logo.png";
 import classes from "./style.module.css";
-
-export default class Header extends Component {
+import { connect } from "react-redux";
+class Header extends Component {
   render() {
     return (
       <div>
@@ -31,16 +31,26 @@ export default class Header extends Component {
               </li>
             </ul>
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/sign-up" className="nav-link">
-                  Đăng Ký
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/sign-in" className="nav-link">
-                  Đăng Nhập
-                </Link>
-              </li>
+              {this.props.credentials ? (
+                <li className="nav-item">
+                  <span className="nav-link">
+                    Hi, {this.props.credentials.hoTen}
+                  </span>
+                </li>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link to="/sign-up" className="nav-link">
+                      Đăng Ký
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/sign-in" className="nav-link">
+                      Đăng Nhập
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </nav>
@@ -48,3 +58,9 @@ export default class Header extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    credentials: state.user.credentials,
+  };
+};
+export default connect(mapStateToProps, null)(Header);
